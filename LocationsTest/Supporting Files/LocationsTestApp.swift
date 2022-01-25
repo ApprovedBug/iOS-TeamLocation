@@ -11,8 +11,6 @@ import SwiftUI
 struct LocationsTestApp: App {
     let persistenceController = PersistenceController.shared
 
-
-
     var body: some Scene {
         WindowGroup {
             let fetcher = LocationFetcher()

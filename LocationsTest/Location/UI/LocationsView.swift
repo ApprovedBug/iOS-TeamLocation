@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LocationsView: View {
-    @ObservedObject var viewModel: LocationsViewModel
+    @ObservedObject private(set) var viewModel: LocationsViewModel
 
     init(viewModel: LocationsViewModel){
         self.viewModel = viewModel
@@ -20,5 +20,12 @@ struct LocationsView: View {
                 LocationRow(viewModel: location)
             }
         }
+    }
+}
+
+struct LocationsView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = LocationsViewModel(locationFetcher: LocationsFetcherMock())
+        LocationsView(viewModel: viewModel).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

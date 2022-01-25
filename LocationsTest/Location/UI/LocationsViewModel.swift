@@ -12,10 +12,10 @@ class LocationsViewModel: ObservableObject, Identifiable {
 
     @Published var locations: [LocationRowViewModel] = []
 
-    private let locationFetcher: LocationFetcher
+    private let locationFetcher: LocationFetchable
     private var disposables = Set<AnyCancellable>()
 
-    init(locationFetcher: LocationFetcher) {
+    init(locationFetcher: LocationFetchable) {
         self.locationFetcher = locationFetcher
 
         fetchLocations()

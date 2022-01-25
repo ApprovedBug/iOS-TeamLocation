@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct LocationRow: View {
-    var viewModel: LocationRowViewModel
+    private(set) var viewModel: LocationRowViewModel
 
     init(viewModel: LocationRowViewModel) {
         self.viewModel = viewModel
