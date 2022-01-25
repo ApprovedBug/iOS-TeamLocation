@@ -22,6 +22,7 @@ class LocationsViewModel: ObservableObject, Identifiable {
 
     private let locationFetcher: LocationFetchable
     private let viewContext: NSManagedObjectContext
+    private let fetchedResultsController: NSFetchedResultsController<LocationMO>
     private var disposables = Set<AnyCancellable>()
 
     init(
@@ -30,6 +31,11 @@ class LocationsViewModel: ObservableObject, Identifiable {
     ) {
         self.locationFetcher = locationFetcher
         self.viewContext = viewContext
+        fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: LocationMO.all,
+            managedObjectContext: viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
     }
 }
 
@@ -42,7 +48,7 @@ extension LocationsViewModel {
         if NetworkMonitor.shared.isReachable {
             fetchLocationFromAPI()
         } else {
-
+            fetchLocationsFromCache()
         }
     }
 
@@ -73,6 +79,16 @@ extension LocationsViewModel {
     }
 
     private func fetchLocationsFromCache() {
+        do {
+            try fetchedResultsController.performFetch()
 
+            guard let locations = fetchedResultsController.fetchedObjects else {
+                return
+            }
+
+            self.state = .loaded(locations.map { LocationRowViewModel.init(item: $0.convertToLocation()) })
+        } catch {
+            self.state = .failed(error)
+        }
     }
 }

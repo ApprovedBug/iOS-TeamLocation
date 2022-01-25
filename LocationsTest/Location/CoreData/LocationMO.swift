@@ -7,19 +7,18 @@
 
 import CoreData
 
-final class LocationMO: NSManagedObject {
-
-    @NSManaged var id: Int16
-    @NSManaged var adId: UUID
-    @NSManaged var latitude: Double
-    @NSManaged var longitude: Double
-}
-
 extension LocationMO {
+
+    static var all: NSFetchRequest<LocationMO> {
+        let request = LocationMO.fetchRequest()
+        request.sortDescriptors = []
+        return request
+    }
+    
     func convertToLocation() -> Location {
         Location(
             id: id,
-            adId: adId,
+            adId: adId ?? UUID(),
             coordinate: Location.Coordinate(longitude: longitude, latitude: latitude)
         )
     }
