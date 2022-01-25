@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct LocationsView: View {
     @ObservedObject private(set) var viewModel: LocationsViewModel
@@ -16,8 +17,18 @@ struct LocationsView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.locations) { location in
-                LocationRow(viewModel: location)
+            switch viewModel.state {
+            case .loaded(let locations):
+                VStack(alignment: .leading) {
+                    List(locations) { location in
+                        LocationRow(viewModel: location)
+                    }
+                }
+                .navigationBarTitle(Text("Locations"), displayMode: .inline)
+            case .failed(let error):
+                Text("Error loading content - \(error.localizedDescription)")
+            case .idle, .loading:
+                ProgressView().onAppear(perform: self.viewModel.fetchLocations)
             }
         }
     }
@@ -25,7 +36,10 @@ struct LocationsView: View {
 
 struct LocationsView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = LocationsViewModel(locationFetcher: LocationsFetcherMock())
-        LocationsView(viewModel: viewModel).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        let viewModel = LocationsViewModel(
+            locationFetcher: LocationsFetcherMock(),
+            viewContext: PersistenceController.preview.container.viewContext
+        )
+        LocationsView(viewModel: viewModel)
     }
 }

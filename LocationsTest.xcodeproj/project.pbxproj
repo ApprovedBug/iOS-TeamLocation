@@ -26,6 +26,8 @@
 		7109298F27A0286600A22221 /* LocationRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109298E27A0286600A22221 /* LocationRowViewModel.swift */; };
 		7109299127A02C7A00A22221 /* LocationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299027A02C7A00A22221 /* LocationRow.swift */; };
 		7109299427A0456500A22221 /* LocationsFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299327A0456500A22221 /* LocationsFetcherMock.swift */; };
+		7109299627A055D900A22221 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299527A055D900A22221 /* NetworkMonitor.swift */; };
+		7109299827A0590A00A22221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299727A0590A00A22221 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		7109298E27A0286600A22221 /* LocationRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRowViewModel.swift; sourceTree = "<group>"; };
 		7109299027A02C7A00A22221 /* LocationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRow.swift; sourceTree = "<group>"; };
 		7109299327A0456500A22221 /* LocationsFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsFetcherMock.swift; sourceTree = "<group>"; };
+		7109299527A055D900A22221 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		7109299727A0590A00A22221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 				71092945279F1D5300A22221 /* Assets.xcassets */,
 				7109294A279F1D5300A22221 /* Persistence.swift */,
 				7109294C279F1D5300A22221 /* LocationsTest.xcdatamodeld */,
+				7109299727A0590A00A22221 /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -167,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				71092985279FFFEA00A22221 /* API */,
-				71092987279FFFF600A22221 /* MO */,
+				71092987279FFFF600A22221 /* CoreData */,
 				7109298827A0004600A22221 /* Model */,
 				7109299227A0454900A22221 /* Stub */,
 				71092986279FFFF100A22221 /* UI */,
@@ -187,20 +192,20 @@
 		71092986279FFFF100A22221 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7109299027A02C7A00A22221 /* LocationRow.swift */,
+				7109298E27A0286600A22221 /* LocationRowViewModel.swift */,
 				71092973279FF37C00A22221 /* LocationsView.swift */,
 				71092975279FF38800A22221 /* LocationsViewModel.swift */,
-				7109298E27A0286600A22221 /* LocationRowViewModel.swift */,
-				7109299027A02C7A00A22221 /* LocationRow.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		71092987279FFFF600A22221 /* MO */ = {
+		71092987279FFFF600A22221 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				7109297C279FFBA600A22221 /* LocationMO.swift */,
 			);
-			path = MO;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		7109298827A0004600A22221 /* Model */ = {
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				7109298C27A0264B00A22221 /* Parsing.swift */,
+				7109299527A055D900A22221 /* NetworkMonitor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -364,6 +370,8 @@
 				71092944279F1D5200A22221 /* ContentView.swift in Sources */,
 				71092974279FF37C00A22221 /* LocationsView.swift in Sources */,
 				7109299127A02C7A00A22221 /* LocationRow.swift in Sources */,
+				7109299627A055D900A22221 /* NetworkMonitor.swift in Sources */,
+				7109299827A0590A00A22221 /* AppDelegate.swift in Sources */,
 				7109294E279F1D5300A22221 /* LocationsTest.xcdatamodeld in Sources */,
 				7109299427A0456500A22221 /* LocationsFetcherMock.swift in Sources */,
 				7109297D279FFBA600A22221 /* LocationMO.swift in Sources */,

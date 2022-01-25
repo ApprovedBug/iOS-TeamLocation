@@ -16,9 +16,30 @@ struct LocationRow: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("\(viewModel.latitude)")
             Text("\(viewModel.longitude)")
-        }
+        }.padding()
+    }
+}
+
+struct LocationRow_Previews: PreviewProvider {
+
+    static var previews: some View {
+        let locationCoordinate = Location.Coordinate(
+            longitude: 0.122321,
+            latitude: 51.237129
+        )
+
+        let location = Location(
+            id: 1,
+            adId: UUID(),
+            coordinate: locationCoordinate
+        )
+
+        let viewModel = LocationRowViewModel(item: location)
+
+        LocationRow(viewModel: viewModel)
+            .previewLayout(.sizeThatFits)
     }
 }
