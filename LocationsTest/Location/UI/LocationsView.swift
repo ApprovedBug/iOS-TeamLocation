@@ -11,7 +11,7 @@ import CoreData
 struct LocationsView: View {
     @ObservedObject private(set) var viewModel: LocationsViewModel
 
-    init(viewModel: LocationsViewModel){
+    init(viewModel: LocationsViewModel) {
         self.viewModel = viewModel
     }
 

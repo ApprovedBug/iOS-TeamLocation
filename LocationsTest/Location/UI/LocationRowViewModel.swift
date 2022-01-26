@@ -23,6 +23,10 @@ struct LocationRowViewModel: Identifiable {
         return String(item.coordinate.longitude)
     }
 
+    var adId: UUID {
+        return item.adId
+    }
+
     init(item: Location) {
         self.item = item
     }

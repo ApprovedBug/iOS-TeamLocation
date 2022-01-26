@@ -28,6 +28,7 @@
 		7109299427A0456500A22221 /* LocationsFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299327A0456500A22221 /* LocationsFetcherMock.swift */; };
 		7109299627A055D900A22221 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299527A055D900A22221 /* NetworkMonitor.swift */; };
 		7109299827A0590A00A22221 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299727A0590A00A22221 /* AppDelegate.swift */; };
+		7109299A27A1469B00A22221 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7109299927A1469B00A22221 /* BaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		7109299327A0456500A22221 /* LocationsFetcherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsFetcherMock.swift; sourceTree = "<group>"; };
 		7109299527A055D900A22221 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		7109299727A0590A00A22221 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7109299927A1469B00A22221 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 			children = (
 				7109298C27A0264B00A22221 /* Parsing.swift */,
 				7109299527A055D900A22221 /* NetworkMonitor.swift */,
+				7109299927A1469B00A22221 /* BaseModel.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				7109299827A0590A00A22221 /* AppDelegate.swift in Sources */,
 				7109294E279F1D5300A22221 /* LocationsTest.xcdatamodeld in Sources */,
 				7109299427A0456500A22221 /* LocationsFetcherMock.swift in Sources */,
+				7109299A27A1469B00A22221 /* BaseModel.swift in Sources */,
 				7109297D279FFBA600A22221 /* LocationMO.swift in Sources */,
 				7109298D27A0264B00A22221 /* Parsing.swift in Sources */,
 				7109298A27A0007000A22221 /* LocationError.swift in Sources */,

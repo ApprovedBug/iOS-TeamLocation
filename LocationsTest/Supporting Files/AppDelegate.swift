@@ -13,4 +13,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         NetworkMonitor.shared.startMonitoring()
         return true
     }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        PersistenceController.shared.save()
+    }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        PersistenceController.shared.save()
+    }
 }

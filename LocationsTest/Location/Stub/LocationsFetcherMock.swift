@@ -27,8 +27,7 @@ struct LocationsFetcherMock: LocationFetchable {
         }
 
         return Just(locations)
-            .mapError { error in
-                .network(description: "Network error")
-            }.eraseToAnyPublisher()
+            .setFailureType(to: LocationError.self)
+            .eraseToAnyPublisher()
     }
 }

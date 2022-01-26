@@ -69,10 +69,11 @@ extension LocationsViewModel {
                         break
                     }
                 },
-                receiveValue: {[weak self] locations in
+                receiveValue: { [weak self] locations in
                     guard let self = self else { return }
 
                     self.state = .loaded(locations)
+                    self.cacheLocations(locations: locations)
                 }
             )
             .store(in: &disposables)
@@ -89,6 +90,18 @@ extension LocationsViewModel {
             self.state = .loaded(locations.map { LocationRowViewModel.init(item: $0.convertToLocation()) })
         } catch {
             self.state = .failed(error)
+        }
+    }
+
+    private func cacheLocations(locations: [LocationRowViewModel]) {
+        locations.forEach { location in
+            if !LocationMO.contains(withId: location.id) {
+                let locationMo = LocationMO(context: viewContext)
+                locationMo.id = location.id
+                locationMo.adId = location.adId
+                locationMo.latitude = Double(location.latitude) ?? 0
+                locationMo.longitude = Double(location.longitude) ?? 0
+            }
         }
     }
 }
